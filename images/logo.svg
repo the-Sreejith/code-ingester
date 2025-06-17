@@ -1,0 +1,28 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+      Logo for a VS Code extension that copies code for LLMs.
+      - The outer shape is a rounded square, common for app icons.
+      - The central graphic is a stylized 'copy' icon.
+      - Inside the copy icon are code brackets '< >', representing source code.
+      - A blue-to-purple gradient is used to align with the VS Code aesthetic.
+    -->
+    <defs>
+        <linearGradient id="backgroundGradient" x1="0" y1="0" x2="256" y2="256">
+            <stop offset="0%" style="stop-color: #3A7DFF;" />
+            <stop offset="100%" style="stop-color: #6C2BD9;" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="256" height="256" rx="48" fill="url(#backgroundGradient)"/>
+
+    <!-- Copy Icon - Back Sheet -->
+    <path d="M96 80 H 168 C 176.837 80 184 87.1634 184 96 V 168 C 184 176.837 176.837 184 168 184 H 96 C 87.1634 184 80 176.837 80 168 V 96 C 80 87.1634 87.1634 80 96 80 Z" fill="white" fill-opacity="0.15"/>
+    
+    <!-- Copy Icon - Front Sheet -->
+    <path d="M72 72 H 144 C 152.837 72 160 79.1634 160 88 V 160 C 160 168.837 152.837 176 144 176 H 72 C 63.1634 176 56 168.837 56 160 V 88 C 56 79.1634 63.1634 72 72 72 Z" fill="white" fill-opacity="0.9"/>
+    
+    <!-- Code Brackets <> -->
+    <path d="M100 108 L 88 124 L 100 140" stroke="#1E1E1E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M128 108 L 140 124 L 128 140" stroke="#1E1E1E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

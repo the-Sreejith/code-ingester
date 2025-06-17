@@ -3,6 +3,17 @@
   "displayName": "Code Ingester - Copy code files for AI",
   "description": "Copy all file contents from a folder recursively to clipboard For AI to ingest",
   "version": "0.0.1",
+  "publisher": "SreejithSreejayan",
+  "icon": "images/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-Sreejith/code-ingester.git"
+  },
+  "homepage": "https://github.com/the-Sreejith/code-ingester",
+  "bugs": {
+    "url": "https://github.com/the-Sreejith/code-ingester/issues"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -15,15 +26,125 @@
     "commands": [
       {
         "command": "copyFolderContents.copyAllFiles",
-        "title": "Copy All File Contents"
+        "title": "Copy All File Contents",
+        "category": "Code Ingester"
+      },
+      {
+        "command": "copyFolderContents.copyFileStructure",
+        "title": "Copy Folder Structure",
+        "category": "Code Ingester"
+      },
+      {
+        "command": "copyFolderContents.ingestToTreeView",
+        "title": "Ingest Folder in Tree View",
+        "category": "Code Ingester"
+      },
+      {
+        "command": "copyFolderContents.showSelectedContent",
+        "title": "Show Selected Content",
+        "category": "Code Ingester",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "copyFolderContents.copySelectedContent",
+        "title": "Copy Selected Content",
+        "category": "Code Ingester",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "copyFolderContents.clearTreeView",
+        "title": "Clear Tree View",
+        "category": "Code Ingester",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "copyFolderContents.selectAll",
+        "title": "Select All",
+        "category": "Code Ingester",
+        "icon": "$(check-all)"
+      },
+      {
+        "command": "copyFolderContents.deselectAll",
+        "title": "Deselect All",
+        "category": "Code Ingester",
+        "icon": "$(close-all)"
       }
     ],
     "menus": {
       "explorer/context": [
         {
+          "command": "copyFolderContents.ingestToTreeView",
+          "when": "explorerResourceIsFolder",
+          "group": "1_ingest@1"
+        },
+        {
           "command": "copyFolderContents.copyAllFiles",
           "when": "explorerResourceIsFolder",
-          "group": "7_modification"
+          "group": "2_copy@1"
+        },
+        {
+          "command": "copyFolderContents.copyFileStructure",
+          "when": "explorerResourceIsFolder",
+          "group": "2_copy@2"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "copyFolderContents.selectAll",
+          "when": "view == codeIngester.fileTree",
+          "group": "navigation@1"
+        },
+        {
+          "command": "copyFolderContents.deselectAll",
+          "when": "view == codeIngester.fileTree",
+          "group": "navigation@2"
+        },
+        {
+          "command": "copyFolderContents.showSelectedContent",
+          "when": "view == codeIngester.fileTree",
+          "group": "navigation@3"
+        },
+        {
+          "command": "copyFolderContents.copySelectedContent",
+          "when": "view == codeIngester.fileTree",
+          "group": "navigation@4"
+        },
+        {
+          "command": "copyFolderContents.clearTreeView",
+          "when": "view == codeIngester.fileTree",
+          "group": "navigation@5"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "copyFolderContents.showSelectedContent",
+          "when": "view == codeIngester.fileTree",
+          "group": "inline@1"
+        },
+        {
+          "command": "copyFolderContents.copySelectedContent",
+          "when": "view == codeIngester.fileTree",
+          "group": "inline@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-ingester-container",
+          "title": "Code Ingester",
+          "icon": "src/media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "code-ingester-container": [
+        {
+          "id": "codeIngester.fileTree",
+          "icon": "src/media/icon.svg",
+          "name": "File Tree",
+          "type": "tree",
+          "contextualTitle": "Code Ingester Files"
         }
       ]
     }
